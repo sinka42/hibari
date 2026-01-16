@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled, { createGlobalStyle, keyframes } from 'styled-components';
 import heroBgImage from './assets/banner.png';
 import drinkBgImage from './assets/drink_menu_bg.png';
@@ -70,6 +70,56 @@ const Navbar = styled.nav`
     border-bottom: 1px solid rgba(184, 158, 120, 0.1);
     padding: 1rem 4rem;
   }
+`;
+
+const BackToTopButton = styled.button`
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(26, 26, 26, 0.8); /* 深色半透明背景 */
+  border: 1px solid #B89E78;
+  color: #B89E78;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 999;
+  transition: all 0.4s ease;
+  opacity: ${props => (props.visible ? '1' : '0')};
+  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
+  transform: translateY(${props => (props.visible ? '0' : '20px')});
+
+  &:focus, &:active {
+    outline: none;
+  }
+  
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    background-color: #B89E78;
+    border: 1px solid #fff;
+    color: #fff;
+    transform: translateY(-5px);
+  }
+
+  @media (max-width: 768px) {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+`;
+
+const ArrowIcon = styled.span`
+  border: solid currentcolor;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 4px;
+  transform: rotate(-135deg);
+  margin-top: 4px;
 `;
 
 const NavLinks = styled.div`
@@ -243,7 +293,8 @@ const Button = styled.button`
 
   &:hover {
     background-color: #B89E78;
-    color: #222;
+    border: 1px solid #fff;
+    color: #fff;
   }
 
   &:focus {
@@ -628,6 +679,40 @@ const HibariLanding = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
+  const BackToTop = () => {
+    const [isVisible, setIsVisible] = useState(false);
+  
+    useEffect(() => {
+      const toggleVisibility = () => {
+        if (window.scrollY > 300) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+      };
+  
+      window.addEventListener('scroll', toggleVisibility);
+      return () => window.removeEventListener('scroll', toggleVisibility);
+    }, []);
+  
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    };
+  
+    return (
+      <BackToTopButton 
+        visible={isVisible} 
+        onClick={scrollToTop}
+        aria-label="Back to top"
+      >
+        <ArrowIcon />
+      </BackToTopButton>
+    );
+  };
+
 
   return (
     <>
@@ -888,6 +973,8 @@ const HibariLanding = () => {
           </InfoBar>
           &copy; 2025 Hibari Japanese Kappou. All rights reserved.
         </Footer>
+
+        <BackToTop />
       </Container>
     </>
   );
