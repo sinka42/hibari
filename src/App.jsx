@@ -62,13 +62,13 @@ const Navbar = styled.nav`
   padding: 1.5rem 4rem;
   box-sizing: border-box;
   z-index: 1000;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* 优雅的位移动画 */
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   
   background: ${props => (props.isScrolled ? 'rgba(26, 26, 26, 0.85)' : 'transparent')};
   backdrop-filter: ${props => (props.isScrolled ? 'blur(10px)' : 'none')};
   
   transform: ${props => {
-    if (props.scrollPos == 1) return 'translateY(-100%)';
+    if (props.scrollPos === 1) return 'translateY(-100%)';
     return 'translateY(0)';
   }};
 
