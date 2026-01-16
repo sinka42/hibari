@@ -62,6 +62,14 @@ const Navbar = styled.nav`
   box-sizing: border-box;
   z-index: 10;
   color: white;
+
+  @media (max-width: 768px) {
+    position: fixed;
+    background: rgba(26, 26, 26); 
+    backdrop-filter: blur(20px); 
+    border-bottom: 1px solid rgba(184, 158, 120, 0.1);
+    padding: 1rem 4rem;
+  }
 `;
 
 const NavLinks = styled.div`
@@ -237,6 +245,10 @@ const Button = styled.button`
     background-color: #B89E78;
     color: #222;
   }
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const Link = styled.a`
@@ -248,7 +260,7 @@ const Link = styled.a`
 `;
 
 const MenuSection = styled.section`
-  padding: 6rem 10%;
+  padding: 2rem 10%;
   background-color: #F4F1EA;
 `;
 
@@ -270,7 +282,7 @@ const SectionTitle = styled.h2`
   text-align: center;
   font-size: 2.5rem;
   color: ##B89E78;
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
   
   &::after {
     content: '';
@@ -288,6 +300,9 @@ const SectionDesc = styled.h2`
   color: ##B89E78;
   width: 80%;
   margin: 0 auto 4rem;
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
 `;
 
 const TabContainer = styled.div`
@@ -309,6 +324,10 @@ const TabButton = styled.button`
   color: ${props => (props.active ? '#1a1a1a' : '#aaa')};
   position: relative;
   transition: color 0.3s ease;
+
+  &:focus {
+    outline: none;
+  }
 
   &::after {
     content: '';
@@ -339,11 +358,12 @@ const MenuDesc = styled.p`
 const MenuGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 2rem;
   margin-bottom: 4rem;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 0;
   }
 `;
 
@@ -374,11 +394,11 @@ const ItemPrice = styled.span`
 `;
 
 const ItemDesc = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #666;
   margin: 0;
   font-style: italic;
-  line-height: 1.5;
+  line-height: 1.25;
 `;
 
 const Disclaimer = styled.p`
@@ -392,7 +412,7 @@ const Disclaimer = styled.p`
 const AboutSection = styled.section`
   background-color: #1A1A1A;
   color: #dcdcdc;
-  padding: 6rem 10%;
+  padding: 2rem 10%;
 `;
 
 const AboutImg = styled.img`
@@ -665,7 +685,7 @@ const HibariLanding = () => {
           <SectionContent style={{ color: '#efefef' }}>
             <p style={{ marginBottom: '1rem' }}>You can also reserve kappo through Instagram DM at <Link href="https://www.instagram.com/hibari_portolavalley" target="_blank"
               rel="noopener noreferrer">hibari_portolavalley</Link> or E-mail <Link href="mailto:hibari3130@gmail.com">hibari3130@gmail.com</Link>.</p>
-            <p style={{ marginBottom: '1rem' }}>If your plans change before your reseruotion time, please contact us promptly to modify your booking.</p>
+            <p style={{ marginBottom: '1rem' }}>If your plans change before your reservation time, please contact us promptly to modify your booking.</p>
           </SectionContent>
         </ReservationSection>
 
@@ -707,7 +727,7 @@ const HibariLanding = () => {
 
           {activeTab === 'dinner' && <>
             <DinnerSection>
-              <SectionDesc>Dinner transforms into Kappo omakase at the counter and "Server Omakase" at tables</SectionDesc>
+              <SectionDesc>Our dinner transforms into Kappo omakase at the counter and "Server Omakase" at tables</SectionDesc>
               <div style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
                 <MenuItem style={{ borderBottom: 'none' }}>
                   <ItemHeader style={{ justifyContent: 'center', gap: '2rem' }}>
