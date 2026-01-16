@@ -64,8 +64,8 @@ const Navbar = styled.nav`
   z-index: 1000;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   
-  background: ${props => (props.isScrolled ? 'rgba(26, 26, 26, 0.85)' : 'transparent')};
-  backdrop-filter: ${props => (props.isScrolled ? 'blur(10px)' : 'none')};
+  background: ${props => (props.isScrolled ? 'rgba(26, 26, 26, 0.9)' : 'transparent')};
+  backdrop-filter: ${props => (props.isScrolled ? 'blur(20px)' : 'none')};
   
   transform: ${props => {
     if (props.scrollPos === 1) return 'translateY(-100%)';
