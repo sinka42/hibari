@@ -68,7 +68,7 @@ const Navbar = styled.nav`
   backdrop-filter: ${props => (props.isScrolled ? 'blur(10px)' : 'none')};
   
   transform: ${props => {
-    if (props.scrollPos > 0 && props.scrollPos < 10) return 'translateY(-100%)';
+    if (props.scrollPos == 1) return 'translateY(-100%)';
     return 'translateY(0)';
   }};
 
@@ -720,7 +720,7 @@ const HibariLanding = () => {
 
         setScrollPos(currentPos);
 
-        if (currentPos > 10) {
+        if (currentPos > 5) {
           setIsScrolled(true);
         } else {
           setIsScrolled(false);
