@@ -1036,7 +1036,7 @@ const HibariLanding = () => {
                   rel="noopener noreferrer">hibari_portolavalley</a></p>
             </InfoBlock>
           </InfoBar>
-          &copy; Hibari Portola Valley . All rights reserved.
+          &copy; Hibari Portola Valley. All rights reserved.
         </Footer>
 
         <BackToTop />
