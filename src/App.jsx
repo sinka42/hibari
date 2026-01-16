@@ -508,6 +508,10 @@ const SectionContent = styled.div`
   }
 `;
 
+const SectionText = styled.div`
+  text-align: left;
+`;
+
 const AboutGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -708,45 +712,45 @@ const HibariLanding = () => {
     const [scrollPos, setScrollPos] = useState(0);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-  
+
     useEffect(() => {
       const handleScroll = () => {
         const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
         const currentPos = (window.scrollY / scrollHeight) * 100;
-        
+
         setScrollPos(currentPos);
-        
+
         if (currentPos > 10) {
           setIsScrolled(true);
         } else {
           setIsScrolled(false);
         }
       };
-  
+
       window.addEventListener('scroll', handleScroll);
       return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-  
+
     return (
       <>
         <Navbar scrollPos={scrollPos} isScrolled={isScrolled}>
           <Hamburger className={isOpen ? 'open' : ''} onClick={() => setIsOpen(!isOpen)}>
             <span /> <span /> <span />
           </Hamburger>
-  
+
           <DesktopNavLinks>
             <a href="#reservations">Reservations</a>
             <a href="#menu">Menu</a>
           </DesktopNavLinks>
-  
+
           <LogoText>HIBARI</LogoText>
-  
+
           <DesktopNavLinks>
             <a href="#about">About</a>
             <a href="#info">Info</a>
           </DesktopNavLinks>
         </Navbar>
-        
+
         <SideBar isOpen={isOpen}>
           <a href="#reservations" onClick={closeMenu}>Reservations</a>
           <a href="#menu" onClick={closeMenu}>Menu</a>
@@ -902,9 +906,9 @@ const HibariLanding = () => {
                     {/* <ItemPrice style={{ fontSize: '1.4rem' }}>$88</ItemPrice> */}
                   </ItemHeader>
                   <ItemList>
-                  {dinnerPetitList.map((item, index) => (
-                    <ItemDesc style={{ marginTop: '0.75rem' }}>{item}</ItemDesc>
-                  ))}
+                    {dinnerPetitList.map((item, index) => (
+                      <ItemDesc style={{ marginTop: '0.75rem' }}>{item}</ItemDesc>
+                    ))}
                   </ItemList>
                 </MenuItem>
               </div>
@@ -964,35 +968,37 @@ const HibariLanding = () => {
         <AboutSection id="about">
           <SectionTitle style={{ color: '#F4F1EA' }}>About Hibari</SectionTitle>
           <SectionContent>
-            <p>Hibari is a dining destination where time slows and the senses take the lead
-              In an intimate and composed setting, each meal inuites guests to trauel beyond the familiar
-              discouering flavors shaped by place, culture, and moment.
-            </p>
-            <p>Our Chef Taka - former Head Sushi Chef at Nobu Palo Alto, with experience at Michelin-starred experience.</p>
-            <p>Through careful pacing and subtle expression, the experience is designed to be felt on the palate
-              rather than explained.</p>
+            <SectionText>
+              <p>Hibari is a dining destination where time slows and the senses take the lead
+                In an intimate and composed setting, each meal inuites guests to trauel beyond the familiar
+                discouering flavors shaped by place, culture, and moment.
+              </p>
+              <p>Our Chef Taka - former Head Sushi Chef at Nobu Palo Alto, with experience at Michelin-starred experience.</p>
+              <p>Through careful pacing and subtle expression, the experience is designed to be felt on the palate
+                rather than explained.</p>
+            </SectionText>
           </SectionContent>
           <AboutGrid>
             <AboutCol>
               <AboutImg src={about0Image}></AboutImg>
               <h3>Seasonal Omakase</h3>
-              <p>
+              <SectionText>
                 A menu that evolves with the four seasons, offering a curated omakase experience shaped by the best ingredients of the moment.
-              </p>
+              </SectionText>
             </AboutCol>
             <AboutCol>
               <AboutImg src={about1Image}></AboutImg>
               <h3>Refined Craftsmanship</h3>
-              <p>
+              <SectionText>
                 Rooted in traditional Japanese sushi techniques, every dish reflects precision, restraint, and deep respect for culinary craft.
-              </p>
+              </SectionText>
             </AboutCol>
             <AboutCol>
               <AboutImg src={about2Image}></AboutImg>
               <h3>Premium Ingredients</h3>
-              <p>
+              <SectionText>
                 Exceptional seafood and seasonal produce selected at peak quality, handled with care to preserve their natural character.
-              </p>
+              </SectionText>
             </AboutCol>
           </AboutGrid>
         </AboutSection>
@@ -1030,7 +1036,7 @@ const HibariLanding = () => {
                   rel="noopener noreferrer">hibari_portolavalley</a></p>
             </InfoBlock>
           </InfoBar>
-          &copy; 2025 Hibari Japanese Kappou. All rights reserved.
+          &copy; 2025 Hibari Portola Valley . All rights reserved.
         </Footer>
 
         <BackToTop />
