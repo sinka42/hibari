@@ -331,7 +331,7 @@ const DrinkSection = styled.section`
 
 const SectionTitle = styled.h2`
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: ##B89E78;
   margin-bottom: 1rem;
   
@@ -343,11 +343,15 @@ const SectionTitle = styled.h2`
     background-color: #B89E78;
     margin: 1rem auto;
   }
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const SectionDesc = styled.h2`
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 1rem;
   color: ##B89E78;
   width: 80%;
   margin: 0 auto 4rem;
@@ -362,6 +366,7 @@ const TabContainer = styled.div`
   gap: 3rem;
   margin-bottom: 4rem;
   border-bottom: 1px solid #e0e0e0;
+  font-size: 1.25rem;
 `;
 
 const TabButton = styled.button`
@@ -429,13 +434,14 @@ const ItemHeader = styled.div`
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 0.5rem;
+  font-size: 1.25rem;
 `;
 
 const ItemName = styled.h4`
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin: 0;
   color: #1a1a1a;
-  font-weight: 600;
+  font-weight: 500;
 `;
 
 const ItemPrice = styled.span`
@@ -444,12 +450,20 @@ const ItemPrice = styled.span`
   color: #555;
 `;
 
-const ItemDesc = styled.p`
+const ItemList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  width: max-content;
+  max-width: 90%;
+`;
+
+const ItemDesc = styled.li`
   font-size: 1rem;
   color: #666;
-  margin: 0;
   font-style: italic;
   line-height: 1.25;
+  list-style: none;
 `;
 
 const Disclaimer = styled.p`
@@ -681,7 +695,7 @@ const HibariLanding = () => {
 
   const BackToTop = () => {
     const [isVisible, setIsVisible] = useState(false);
-  
+
     useEffect(() => {
       const toggleVisibility = () => {
         if (window.scrollY > 300) {
@@ -690,21 +704,21 @@ const HibariLanding = () => {
           setIsVisible(false);
         }
       };
-  
+
       window.addEventListener('scroll', toggleVisibility);
       return () => window.removeEventListener('scroll', toggleVisibility);
     }, []);
-  
+
     const scrollToTop = () => {
       window.scrollTo({
         top: 0,
         behavior: 'smooth',
       });
     };
-  
+
     return (
-      <BackToTopButton 
-        visible={isVisible} 
+      <BackToTopButton
+        visible={isVisible}
         onClick={scrollToTop}
         aria-label="Back to top"
       >
@@ -781,13 +795,13 @@ const HibariLanding = () => {
               active={activeTab === 'lunch'}
               onClick={() => setActiveTab('lunch')}
             >
-              LUNCH
+              Lunch
             </TabButton>
             <TabButton
               active={activeTab === 'dinner'}
               onClick={() => setActiveTab('dinner')}
             >
-              DINNER
+              Dinner
             </TabButton>
           </TabContainer>
           {activeTab === 'lunch' && <>
@@ -824,9 +838,11 @@ const HibariLanding = () => {
                   </strong>
                   <ItemDesc>Join us for a special Kappo Omakase at 6:00 PM.</ItemDesc>
                   <ItemDesc>Limited Bar Seats - advance reservation required.</ItemDesc>
-                  {omakaseList.map((item, index) => (
-                    <ItemDesc style={{ marginTop: '1rem' }}>{item}</ItemDesc>
-                  ))}
+                  <ItemList>
+                    {omakaseList.map((item, index) => (
+                      <ItemDesc style={{ marginTop: '0.75rem' }}>{item}</ItemDesc>
+                    ))}
+                  </ItemList>
                 </MenuItem>
 
                 <MenuItem style={{ borderBottom: 'none' }}>
@@ -834,9 +850,11 @@ const HibariLanding = () => {
                     <ItemName style={{ fontSize: '1.5rem' }}>Dinner Prix Fixe</ItemName>
                     {/* <ItemPrice style={{ fontSize: '1.5rem' }}>$150</ItemPrice> */}
                   </ItemHeader>
-                  {dinnerPrefixList.map((item, index) => (
-                    <ItemDesc style={{ marginTop: '1rem' }}>{item}</ItemDesc>
-                  ))}
+                  <ItemList>
+                    {dinnerPrefixList.map((item, index) => (
+                      <ItemDesc style={{ marginTop: '0.75rem' }}>{item}</ItemDesc>
+                    ))}
+                  </ItemList>
                 </MenuItem>
 
                 <MenuItem style={{ borderBottom: 'none' }}>
@@ -844,9 +862,11 @@ const HibariLanding = () => {
                     <ItemName style={{ fontSize: '1.4rem' }}>Hibari Petit Tasting</ItemName>
                     {/* <ItemPrice style={{ fontSize: '1.4rem' }}>$88</ItemPrice> */}
                   </ItemHeader>
+                  <ItemList>
                   {dinnerPetitList.map((item, index) => (
-                    <ItemDesc style={{ marginTop: '1rem' }}>{item}</ItemDesc>
+                    <ItemDesc style={{ marginTop: '0.75rem' }}>{item}</ItemDesc>
                   ))}
+                  </ItemList>
                 </MenuItem>
               </div>
 
