@@ -52,22 +52,30 @@ const Container = styled.div`
 `;
 
 const Navbar = styled.nav`
-  position: absolute;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  padding: 2rem 4rem;
+  padding: 1.5rem 4rem;
   box-sizing: border-box;
-  z-index: 10;
+  z-index: 1000;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* 优雅的位移动画 */
+  
+  background: ${props => (props.isScrolled ? 'rgba(26, 26, 26, 0.85)' : 'transparent')};
+  backdrop-filter: ${props => (props.isScrolled ? 'blur(10px)' : 'none')};
+  
+  transform: ${props => {
+    if (props.scrollPos > 0 && props.scrollPos < 10) return 'translateY(-100%)';
+    return 'translateY(0)';
+  }};
+
   color: white;
 
   @media (max-width: 768px) {
-    position: fixed;
-    background: rgba(26, 26, 26); 
-    backdrop-filter: blur(20px); 
-    border-bottom: 1px solid rgba(184, 158, 120, 0.1);
+    font-size: 1rem;
     padding: 1rem 4rem;
   }
 `;
@@ -216,6 +224,9 @@ const LogoText = styled.h1`
   margin: 0;
   letter-spacing: 0.3em;
   font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const HeroSection = styled.section`
@@ -693,6 +704,62 @@ const HibariLanding = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
 
+  const Header = () => {
+    const [scrollPos, setScrollPos] = useState(0);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const currentPos = (window.scrollY / scrollHeight) * 100;
+        
+        setScrollPos(currentPos);
+        
+        if (currentPos > 10) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+  
+    return (
+      <>
+        <Navbar scrollPos={scrollPos} isScrolled={isScrolled}>
+          <Hamburger className={isOpen ? 'open' : ''} onClick={() => setIsOpen(!isOpen)}>
+            <span /> <span /> <span />
+          </Hamburger>
+  
+          <DesktopNavLinks>
+            <a href="#reservations">Reservations</a>
+            <a href="#menu">Menu</a>
+          </DesktopNavLinks>
+  
+          <LogoText>HIBARI</LogoText>
+  
+          <DesktopNavLinks>
+            <a href="#about">About</a>
+            <a href="#info">Info</a>
+          </DesktopNavLinks>
+        </Navbar>
+        
+        <SideBar isOpen={isOpen}>
+          <a href="#reservations" onClick={closeMenu}>Reservations</a>
+          <a href="#menu" onClick={closeMenu}>Menu</a>
+          <a href="#about" onClick={closeMenu}>About</a>
+          <a href="#info" onClick={closeMenu}>Info</a>
+        </SideBar>
+
+        <Overlay isOpen={isOpen} onClick={closeMenu} />
+
+      </>
+    );
+  };
+
   const BackToTop = () => {
     const [isVisible, setIsVisible] = useState(false);
 
@@ -732,35 +799,7 @@ const HibariLanding = () => {
     <>
       <GlobalStyle />
       <Container>
-        <Navbar>
-          <Hamburger className={isOpen ? 'open' : ''} onClick={toggleMenu}>
-            <span />
-            <span />
-            <span />
-          </Hamburger>
-
-          <DesktopNavLinks>
-            <a href="#reservations">Reservations</a>
-            <a href="#menu">Menu</a>
-          </DesktopNavLinks>
-
-          <LogoText style={{ zIndex: 101 }}>HIBARI</LogoText>
-
-          <DesktopNavLinks>
-            <a href="#about">About</a>
-            <a href="#info">Info</a>
-          </DesktopNavLinks>
-        </Navbar>
-
-        <SideBar isOpen={isOpen}>
-          <a href="#reservations" onClick={closeMenu}>Reservations</a>
-          <a href="#menu" onClick={closeMenu}>Menu</a>
-          <a href="#about" onClick={closeMenu}>About</a>
-          <a href="#info" onClick={closeMenu}>Info</a>
-        </SideBar>
-
-        <Overlay isOpen={isOpen} onClick={closeMenu} />
-
+        <Header />
         <HeroSection>
           <KanjiTitle>
             <LogoTitle src={titleImage}></LogoTitle>
