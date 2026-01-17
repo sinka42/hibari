@@ -1021,8 +1021,8 @@ const HibariLanding = () => {
             <InfoBlock>
               <h3>HOURS</h3>
               <p style={{ color: '#888', fontSize: '0.8rem' }}>Tuesday-Sunday. Closed Mondays</p>
-              <p>Lunch: 11:30 AM - 2:00 PM</p>
-              <p>Dinner: 5:00 PM - 9:00 PM</p>
+              <p>Lunch: 11:30 AM-2:00 PM</p>
+              <p>Dinner: 5:00 PM-9:00 PM</p>
             </InfoBlock>
 
             <InfoBlock>
