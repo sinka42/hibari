@@ -634,27 +634,145 @@ const HibariLanding = () => {
     }
   ];
 
-  const dinnerPetitList = [
-    "Welcome Bite - Seasonal starter",
-    "Nigiri Flight · First set",
-    "Nigiri Flight · Second set",
-    "Soup",
-    "Dessert",
-  ];
+  // const dinnerPetitList = [
+  //   "Welcome Bite - Seasonal starter",
+  //   "Nigiri Flight (First set)",
+  //   "Nigiri Flight (Second set)",
+  //   "Miso Soup",
+  //   "Dessert",
+  // ];
+
+  // const dinnerPrefixList = [
+  //   "Welcome Bite - Seasonal starter",
+  //   "Sashimi",
+  //   "Tofu Course",
+  //   "Nigiri Flight (First set)",
+  //   "Dobin Mushi",
+  //   "Nigiri Flight (Second set)",
+  //   "Nimono",
+  //   "Handroll",
+  //   "Miso Soup",
+  //   "Dessert",
+  //   "Enhancements(Optional)"
+  // ];
 
   const dinnerPrefixList = [
-    "Welcome Bite - Seasonal starter",
-    "Sashimi",
-    "Tofu Course",
-    "Nigiri Flight · First set",
-    "Dobin Mushi",
-    "Nigiri Flight · Second set",
-    "Nimono",
-    "Handroll",
-    "Soup",
-    "Dessert",
-    "Enhancements(Optional)"
+    {
+      name: "Welcome Bite",
+      // price: "",
+      sub: "Welcome Bite ",
+      desc: "Seasonal starter appetizer."
+    },
+    {
+      name: "Sashimi",
+      sub: "Sashimi",
+      desc: "Seasonal daily fish Sashimi selection."
+    },
+    {
+      name: "Tofu Course",
+      sub: "Shira-ae Tofu Course",
+      desc: "House-made tofu with sesame dressing and seasonal vegetables."
+    },
+    {
+      name: "Nigiri Flight",
+      // price: "",
+      sub: "Nigiri Flight - First Set",
+      desc: "Assorted nigiri sushi light selection (4pcs)."
+    },
+    {
+      name: "Dobin Mushi",
+      sub: "Dobin Mushi",
+      desc: "Traditional clay-pot broth with seasonal seafood, mushrooms, aromatic citrus."
+    },
+    {
+      name: "Nigiri Flight",
+      // price: "",
+      sub: "Nigiri Flight - Second Set",
+      desc: "Assorted nigiri sushi rich selection (4pcs)."
+    },
+    {
+      name: "Nimono",
+      sub: "Nimono",
+      desc: "Braised Seasonal Dish."
+    },
+    {
+      name: "Handroll",
+      sub: "Handroll",
+      desc: "warm rice, crisp nori with nightly ingredients."
+    },
+    {
+      name: "Soup",
+      // price: "",
+      sub: "Soup",
+      desc: "Aka dashi with miso broth."
+    },
+    {
+      name: "Dessert",
+      // price: "",
+      sub: "Dessert",
+      desc: "Seasonal dessert to finish the course."
+    },
+    {
+      name: "Enhancements(Optional)",
+      // price: "",
+      sub: "Enhancements(Optional)",
+      desc: "Bafun Uni. A5 Wagyu Nigiri"
+    }
   ];
+
+  const dinnerPetitList = [
+    {
+      name: "Welcome Bite",
+      // price: "",
+      sub: "Welcome Bite ",
+      desc: "Seasonal starter appetizer."
+    },
+    {
+      name: "Nigiri Flight",
+      // price: "",
+      sub: "Nigiri Flight - First Set",
+      desc: "Assorted nigiri sushi light selection (4pcs)."
+    },
+    {
+      name: "Nigiri Flight",
+      // price: "",
+      sub: "Nigiri Flight - Second Set",
+      desc: "Assorted nigiri sushi rich selection (4pcs)."
+    },
+    {
+      name: "Soup",
+      // price: "",
+      sub: "Soup",
+      desc: "Aka dashi with miso broth."
+    },
+    {
+      name: "Dessert",
+      // price: "",
+      sub: "Dessert",
+      desc: "Seasonal dessert to finish the course."
+    }
+  ];
+
+  const dinnerKidsList = [
+    {
+      name: "Rice Set",
+      // price: "22",
+      sub: "Steamed Rice with Side",
+      desc: "Side: Salmon Sashimi (5 pcs), Seasonal Nimono (Choose One)"
+    },
+    {
+      name: "Sweet",
+      // price: "28",
+      sub: "Sweet - Waka Momo",
+      desc: "Served with rice, soup, and sides."
+    },
+    {
+      name: "Add-On",
+      // price: "28",
+      sub: "Ikura Add-On",
+      desc: "Ikura Topping on Rice."
+    }
+  ]
 
   const omakaseList = []
 
@@ -895,7 +1013,16 @@ const HibariLanding = () => {
                   </ItemHeader>
                   <ItemList>
                     {dinnerPrefixList.map((item, index) => (
-                      <ItemDesc style={{ marginTop: '0.75rem' }}>{item}</ItemDesc>
+                      <>
+                        {/* <ItemName style={{ marginTop: '0.75rem' }}>{item.name}</ItemName> */}
+                        {/* <ItemPrice>${item.price}</ItemPrice> */}
+                        <ItemDesc style={{ marginTop: '0.75rem' }}>
+                          <strong style={{ display: 'block', color: '#B89E78', marginBottom: '0.3rem', fontStyle: 'italic' }}>
+                            {item.sub}
+                          </strong>
+                          {item.desc}
+                        </ItemDesc>
+                      </>
                     ))}
                   </ItemList>
                 </MenuItem>
@@ -907,7 +1034,42 @@ const HibariLanding = () => {
                   </ItemHeader>
                   <ItemList>
                     {dinnerPetitList.map((item, index) => (
+                      <>
+                        {/* <ItemName style={{ marginTop: '0.75rem' }}>{item.name}</ItemName> */}
+                        {/* <ItemPrice>${item.price}</ItemPrice> */}
+                        <ItemDesc style={{ marginTop: '0.75rem' }}>
+                          <strong style={{ display: 'block', color: '#B89E78', marginBottom: '0.3rem', fontStyle: 'italic' }}>
+                            {item.sub}
+                          </strong>
+                          {item.desc}
+                        </ItemDesc>
+                      </>
+                    ))}
+                  </ItemList>
+                </MenuItem>
+
+                <MenuItem style={{ borderBottom: 'none' }}>
+                  <ItemHeader style={{ justifyContent: 'center', gap: '2rem' }}>
+                    <ItemName style={{ fontSize: '1.4rem' }}>Kids Menu</ItemName>
+                    {/* <ItemPrice style={{ fontSize: '1.4rem' }}>$88</ItemPrice> */}
+                  </ItemHeader>
+                  {/* <ItemList>
+                    {dinnerKidsList.map((item, index) => (
                       <ItemDesc style={{ marginTop: '0.75rem' }}>{item}</ItemDesc>
+                    ))}
+                  </ItemList> */}
+                  <ItemList>
+                    {dinnerKidsList.map((item, index) => (
+                      <>
+                        {/* <ItemName style={{ marginTop: '0.75rem' }}>{item.name}</ItemName> */}
+                        {/* <ItemPrice>${item.price}</ItemPrice> */}
+                        <ItemDesc style={{ marginTop: '0.75rem' }}>
+                          <strong style={{ display: 'block', color: '#B89E78', marginBottom: '0.3rem', fontStyle: 'italic' }}>
+                            {item.sub}
+                          </strong>
+                          {item.desc}
+                        </ItemDesc>
+                      </>
                     ))}
                   </ItemList>
                 </MenuItem>
@@ -1040,7 +1202,7 @@ const HibariLanding = () => {
         </Footer>
 
         <BackToTop />
-      </Container>
+      </Container >
     </>
   );
 };
