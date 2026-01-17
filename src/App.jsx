@@ -812,7 +812,7 @@ const HibariLanding = () => {
 
         <ReservationSection id="reservations">
           <InfoBar>
-            <SectionTitle>Online Reservation</SectionTitle>
+            <SectionTitle>ONLINE RESERVATION</SectionTitle>
           </InfoBar>
           <SectionContent>
             <a
@@ -832,7 +832,7 @@ const HibariLanding = () => {
         </ReservationSection>
 
         <MenuSection id="menu">
-          <SectionTitle> Menu</SectionTitle>
+          <SectionTitle> MENU</SectionTitle>
           <TabContainer>
             <TabButton
               active={activeTab === 'lunch'}
@@ -966,7 +966,7 @@ const HibariLanding = () => {
         </DrinkSection> */}
 
         <AboutSection id="about">
-          <SectionTitle style={{ color: '#F4F1EA' }}>About Hibari</SectionTitle>
+          <SectionTitle style={{ color: '#F4F1EA' }}>ABOUT HIBARI</SectionTitle>
           <SectionContent>
             <SectionText>
               <p>Hibari is a dining destination where time slows and the senses take the lead
