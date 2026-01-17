@@ -1028,7 +1028,7 @@ const HibariLanding = () => {
             <InfoBlock>
               <h3>CONTACT</h3>
               <p><i class="fas fa-phone-alt"></i>&nbsp;
-                <a href="tel:6506569243">(650) 656-9243</a></p>
+                <a href="tel:6506569243">(650)656-9243</a></p>
               <p><i class="fas fa-envelope"></i>&nbsp;
                 <a href="mailto:hibari3130@gmail.com">hibari3130@gmail.com</a></p>
               <p><i class="fa-brands fa-instagram"></i>&nbsp;
