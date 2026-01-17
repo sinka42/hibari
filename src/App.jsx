@@ -879,8 +879,8 @@ const HibariLanding = () => {
                   <strong style={{ display: 'block', color: '#B89E78', marginBottom: '0.3rem', fontStyle: 'italic' }}>
                     Bar Counter Experience
                   </strong>
-                  <ItemDesc>Join us for a special Kappo Omakase at 6:00 PM.</ItemDesc>
-                  <ItemDesc>Limited Bar Seats - advance reservation required.</ItemDesc>
+                  <ItemDesc style={{ marginTop: '0.75rem' }}>Join us for a special Kappo Omakase at 6:00 PM.</ItemDesc>
+                  <ItemDesc style={{ marginTop: '0.75rem' }}>Limited Bar Seats! Advance reservation required.</ItemDesc>
                   <ItemList>
                     {omakaseList.map((item, index) => (
                       <ItemDesc style={{ marginTop: '0.75rem' }}>{item}</ItemDesc>
