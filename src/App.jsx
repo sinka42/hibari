@@ -833,18 +833,18 @@ const HibariLanding = () => {
 
     useEffect(() => {
       const handleScroll = () => {
-        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const currentPos = (window.scrollY / scrollHeight) * 100;
-
-        setScrollPos(currentPos);
-
-        if (currentPos > 5) {
+        const totalHeight = document.documentElement.scrollHeight;
+        const currentScrollY = window.scrollY;
+    
+        if (currentScrollY > totalHeight * 0.1) {
           setIsScrolled(true);
         } else {
           setIsScrolled(false);
         }
       };
-
+    
+      handleScroll();
+    
       window.addEventListener('scroll', handleScroll);
       return () => window.removeEventListener('scroll', handleScroll);
     }, []);
