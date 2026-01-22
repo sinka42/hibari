@@ -823,9 +823,6 @@ const HibariLanding = () => {
   const [activeTab, setActiveTab] = useState('lunch');
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  const closeMenu = () => setIsOpen(false);
-
   const Header = () => {
     const [scrollPos, setScrollPos] = useState(0);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -870,13 +867,13 @@ const HibariLanding = () => {
         </Navbar>
 
         <SideBar isOpen={isOpen}>
-          <a href="#reservations" onClick={closeMenu}>Reservations</a>
-          <a href="#menu" onClick={closeMenu}>Menu</a>
-          <a href="#about" onClick={closeMenu}>About</a>
-          <a href="#info" onClick={closeMenu}>Info</a>
+          <a href="#reservations" onClick={() => setIsOpen(false)}>Reservations</a>
+          <a href="#menu" onClick={() => setIsOpen(false)}>Menu</a>
+          <a href="#about" onClick={() => setIsOpen(false)}>About</a>
+          <a href="#info" onClick={() => setIsOpen(false)}>Info</a>
         </SideBar>
 
-        <Overlay isOpen={isOpen} onClick={closeMenu} />
+        <Overlay isOpen={isOpen} onClick={() => setIsOpen(false)} />
 
       </>
     );
