@@ -695,7 +695,7 @@ const HibariLanding = () => {
     {
       name: "Handroll",
       sub: "Handroll",
-      desc: "warm rice, crisp nori with nightly ingredients."
+      desc: "Warm rice, crisp nori with nightly ingredients."
     },
     {
       name: "Soup",
