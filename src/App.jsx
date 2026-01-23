@@ -415,7 +415,6 @@ const TabButton = styled.button`
 
 const MenuDesc = styled.p`
   text-align: center;
-  max-width: 600px;
   margin: -3rem auto 3rem;
   font-style: italic;
   color: #666;
@@ -465,8 +464,6 @@ const ItemList = styled.ul`
   list-style-type: none;
   padding: 0;
   margin: 0 auto;
-  width: max-content;
-  max-width: 90%;
 `;
 
 const ItemDesc = styled.li`
@@ -985,7 +982,7 @@ const HibariLanding = () => {
           {activeTab === 'dinner' && <>
             <DinnerSection>
               <SectionDesc>Our dinner transforms into Kappo omakase at the counter and "Server Omakase" at tables</SectionDesc>
-              <div style={{ textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
+              <div style={{ textAlign: 'center', margin: '0 auto' }}>
                 <MenuItem style={{ borderBottom: 'none' }}>
                   <ItemHeader style={{ justifyContent: 'center', gap: '2rem' }}>
                     <ItemName style={{ fontSize: '1.5rem' }}>Kappo Omakase</ItemName>
