@@ -1041,22 +1041,22 @@ const HibariLanding = () => {
                     ))}
                   </ItemList>
                 </MenuItem>
-
+{/* 
                 <MenuItem style={{ borderBottom: 'none' }}>
                   <ItemHeader style={{ justifyContent: 'center', gap: '2rem' }}>
                     <ItemName style={{ fontSize: '1.4rem' }}>Kids Menu</ItemName>
-                    {/* <ItemPrice style={{ fontSize: '1.4rem' }}>$88</ItemPrice> */}
+                    <ItemPrice style={{ fontSize: '1.4rem' }}>$88</ItemPrice>
                   </ItemHeader>
-                  {/* <ItemList>
+                  <ItemList>
                     {dinnerKidsList.map((item, index) => (
                       <ItemDesc style={{ marginTop: '0.75rem' }}>{item}</ItemDesc>
                     ))}
-                  </ItemList> */}
+                  </ItemList>
                   <ItemList>
                     {dinnerKidsList.map((item, index) => (
                       <>
-                        {/* <ItemName style={{ marginTop: '0.75rem' }}>{item.name}</ItemName> */}
-                        {/* <ItemPrice>${item.price}</ItemPrice> */}
+                        <ItemName style={{ marginTop: '0.75rem' }}>{item.name}</ItemName> 
+                        <ItemPrice>${item.price}</ItemPrice>
                         <ItemDesc style={{ marginTop: '0.75rem' }}>
                           <strong style={{ display: 'block', color: '#B89E78', marginBottom: '0.3rem', fontStyle: 'italic' }}>
                             {item.sub}
@@ -1066,7 +1066,7 @@ const HibariLanding = () => {
                       </>
                     ))}
                   </ItemList>
-                </MenuItem>
+                </MenuItem> */}
               </div>
 
             </DinnerSection>
