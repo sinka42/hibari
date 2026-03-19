@@ -818,7 +818,6 @@ const HibariLanding = () => {
   ];
 
   const [activeTab, setActiveTab] = useState('lunch');
-  const [isOpen, setIsOpen] = useState(false);
 
   const Header = () => {
     const [scrollPos, setScrollPos] = useState(0);
@@ -1176,7 +1175,7 @@ const HibariLanding = () => {
 
             <InfoBlock>
               <h3>HOURS</h3>
-              <p style={{ color: '#888', fontSize: '0.8rem' }}>Tuesday-Sunday. Closed Mondays</p>
+              <p style={{ color: '#888', fontSize: '0.8rem' }}>Wednesday-Sunday. Closed Monday and Tuesday.</p>
               <p>Lunch: 11:30 AM-2:00 PM</p>
               <p>Dinner: 5:00 PM-9:00 PM</p>
             </InfoBlock>
