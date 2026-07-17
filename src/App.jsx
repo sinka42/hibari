@@ -999,47 +999,32 @@ const HibariLanding = () => {
                   </ItemList>
                 </MenuItem>
 
-                <MenuItem style={{ borderBottom: 'none' }}>
-                  <ItemHeader style={{ justifyContent: 'center', gap: '2rem' }}>
-                    <ItemName style={{ fontSize: '1.5rem' }}>Dinner Prix Fixe</ItemName>
-                    {/* <ItemPrice style={{ fontSize: '1.5rem' }}>$150</ItemPrice> */}
-                  </ItemHeader>
-                  <ItemList>
-                    {dinnerPrefixList.map((item, index) => (
-                      <>
-                        {/* <ItemName style={{ marginTop: '0.75rem' }}>{item.name}</ItemName> */}
-                        {/* <ItemPrice>${item.price}</ItemPrice> */}
-                        <ItemDesc style={{ marginTop: '0.75rem' }}>
-                          <strong style={{ display: 'block', color: '#B89E78', marginBottom: '0.3rem', fontStyle: 'italic' }}>
-                            {item.sub}
-                          </strong>
-                          {item.desc}
-                        </ItemDesc>
-                      </>
-                    ))}
-                  </ItemList>
-                </MenuItem>
+{/* Nigiri Omakase */}
+<MenuItem style={{ borderBottom: 'none' }}>
+  <ItemHeader style={{ justifyContent: 'center', gap: '2rem' }}>
+    <ItemName style={{ fontSize: '1.5rem' }}>Nigiri Omakase</ItemName>
+  </ItemHeader>
+  <ItemList>
+    <ItemDesc style={{ marginTop: '0.75rem' }}>
+      A traditional nigiri-focused omakase featuring seasonal seafood selected and prepared by the chef.
+    </ItemDesc>
+  </ItemList>
+</MenuItem>
 
-                <MenuItem style={{ borderBottom: 'none' }}>
-                  <ItemHeader style={{ justifyContent: 'center', gap: '2rem' }}>
-                    <ItemName style={{ fontSize: '1.4rem' }}>Hibari Petit Tasting</ItemName>
-                    {/* <ItemPrice style={{ fontSize: '1.4rem' }}>$88</ItemPrice> */}
-                  </ItemHeader>
-                  <ItemList>
-                    {dinnerPetitList.map((item, index) => (
-                      <>
-                        {/* <ItemName style={{ marginTop: '0.75rem' }}>{item.name}</ItemName> */}
-                        {/* <ItemPrice>${item.price}</ItemPrice> */}
-                        <ItemDesc style={{ marginTop: '0.75rem' }}>
-                          <strong style={{ display: 'block', color: '#B89E78', marginBottom: '0.3rem', fontStyle: 'italic' }}>
-                            {item.sub}
-                          </strong>
-                          {item.desc}
-                        </ItemDesc>
-                      </>
-                    ))}
-                  </ItemList>
-                </MenuItem>
+{/* Sashimi Moriawase */}
+<MenuItem style={{ borderBottom: 'none' }}>
+  <ItemHeader style={{ justifyContent: 'center', gap: '2rem' }}>
+    <ItemName style={{ fontSize: '1.5rem' }}>Sashimi Moriawase</ItemName>
+  </ItemHeader>
+  <ItemList>
+    <ItemDesc style={{ marginTop: '0.75rem' }}>
+      Chef's daily selection of premium seasonal seafood.
+    </ItemDesc>
+    <ItemDesc style={{ marginTop: '0.5rem', fontStyle: 'italic', color: '#666' }}>
+      Ideal for sharing or as a lighter low-carb dining experience.
+    </ItemDesc>
+  </ItemList>
+</MenuItem>
 {/* 
                 <MenuItem style={{ borderBottom: 'none' }}>
                   <ItemHeader style={{ justifyContent: 'center', gap: '2rem' }}>
