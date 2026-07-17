@@ -936,7 +936,7 @@ const HibariLanding = () => {
             </a>
           </SectionContent>
           <SectionContent style={{ color: '#efefef' }}>
-            <p style={{ marginBottom: '1rem' }}>You can also reserve kappo through Instagram DM at <Link href="https://www.instagram.com/hibari_portolavalley" target="_blank"
+            <p style={{ marginBottom: '1rem' }}>You can also reserve counter through Instagram DM at <Link href="https://www.instagram.com/hibari_portolavalley" target="_blank"
               rel="noopener noreferrer">hibari_portolavalley</Link> or E-mail <Link href="mailto:hibari3130@gmail.com">hibari3130@gmail.com</Link>.</p>
             <p style={{ marginBottom: '1rem' }}>If your plans change before your reservation time, please contact us promptly to modify your booking.</p>
           </SectionContent>
@@ -980,23 +980,35 @@ const HibariLanding = () => {
 
           {activeTab === 'dinner' && <>
             <DinnerSection>
-              <SectionDesc>Our dinner transforms into Kappo omakase at the counter and "Server Omakase" at tables</SectionDesc>
+              <SectionDesc>Our dinner transforms into counter omakase at the counter and "Server Omakase" at tables</SectionDesc>
               <div style={{ textAlign: 'center', margin: '0 auto' }}>
-                <MenuItem style={{ borderBottom: 'none' }}>
+              <MenuItem style={{ borderBottom: 'none' }}>
                   <ItemHeader style={{ justifyContent: 'center', gap: '2rem' }}>
-                    <ItemName style={{ fontSize: '1.5rem' }}>Kappo Omakase</ItemName>
+                    <ItemName style={{ fontSize: '1.5rem' }}>Counter Omakase</ItemName>
                     {/* <ItemPrice style={{ fontSize: '1.5rem' }}>$250</ItemPrice> */}
                   </ItemHeader>
                   <strong style={{ display: 'block', color: '#B89E78', marginBottom: '0.3rem', fontStyle: 'italic' }}>
                     Bar Counter Experience
                   </strong>
-                  <ItemDesc style={{ marginTop: '0.75rem' }}>Join us for a special Kappo Omakase at 6:00 PM.</ItemDesc>
+                  <ItemDesc style={{ marginTop: '0.75rem' }}>Join us for a special counter Omakase at 6:00 PM.</ItemDesc>
                   <ItemDesc style={{ marginTop: '0.75rem' }}>Limited Bar Seats! Advance reservation required.</ItemDesc>
                   <ItemList>
                     {omakaseList.map((item, index) => (
                       <ItemDesc style={{ marginTop: '0.75rem' }}>{item}</ItemDesc>
                     ))}
                   </ItemList>
+                </MenuItem>
+                
+                <MenuItem style={{ borderBottom: 'none' }}>
+                  <ItemHeader style={{ justifyContent: 'center', gap: '2rem' }}>
+                    <ItemName style={{ fontSize: '1.5rem' }}>Kappo Omakase</ItemName>
+                  </ItemHeader>
+                  <ItemDesc style={{ marginTop: '0.75rem' }}>A seasonal kappo experience showcasing the best ingredients of the day through a progression of sashimi, delicacies, warm preparations, and chef’s specialties.</ItemDesc>
+                  {/* <ItemList>
+                    {omakaseList.map((item, index) => (
+                      <ItemDesc style={{ marginTop: '0.75rem' }}>{item}</ItemDesc>
+                    ))}
+                  </ItemList> */}
                 </MenuItem>
 
 {/* Nigiri Omakase */}
